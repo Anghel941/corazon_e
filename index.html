@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+       
+        $(document).ready(function() {
+            $('.wrapper input[type="checkbox"]').change(function() {
+              if ($('#ck1').prop('checked') && $('#ck2').prop('checked') && $('#ck3').prop('checked')) {
+                setTimeout(function() {
+                  $('.corazon').show();
+                  setTimeout(function() {
+                    $('.text-typing').show();
+                        $('html, body').animate({
+                          scrollTop: $(".text-typing").offset().top
+                        }, 1000);
+                      setTimeout(function() {
+                        window.location.href = 'main.html';
+                      }, 10000);
+                  }, 5000);
+                }, 3000); // 3000 milisegundos = 3 segundos para mostrar la imagen y el texto después de marcar los checkboxes
+              }
+            });
+          });
+              
+      </script>
+</head>
+<body>
+    
+      <div class="wrapper">
+        <input type="checkbox" id="ck1"/>
+        <label for="ck1">Your </label>
+        <input type="checkbox" id="ck2"/>
+        <label for="ck2">smile </label>
+        <input type="checkbox" id="ck3"/>
+        <label for="ck3" class="ck33">enchants</label>
+        <img class="corazon" src="2.jpeg" alt="">
+      </div>
+      <span class="spano">(Dame un click)😃</span>
+      <div  class="text-typing">
+        <h2 id="h1">Upss!!! Me robe tu foto de Tik Tok 😁😁😃😃🤗🤗🥰🥰😊😊😄😄😅😅 por no enviarme mas fotos tuyas ya vez😃😀 &nbsp;&nbsp;&nbsp;</h2>
+      </div>
+</body>
+</html>

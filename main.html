@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Document</title>
+
+   <script>
+    function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+$(document).ready(function(){
+  setInterval(function(){
+    var screenHeight = $(document).height();
+    var screenWidth = $(document).width();
+
+    var startLeft = getRandomArbitrary(0,screenWidth);
+
+    var timeRun = getRandomArbitrary(4000,6000);
+    var opacityR = Math.random() * (1 - 0.2) + 0.2;
+    var sizeR = getRandomArbitrary(5,20);
+
+    var endLeft = getRandomArbitrary(startLeft-100,startLeft+100);
+
+    var snow = document.createElement('span');
+
+    $(snow).addClass('snow-item fa fa-heart').css({
+      'position'  : 'absolute',
+      'z-index'   : 'auto',
+      'color'     : '#ff0000',
+      'display'   : 'block',
+      'top'       : 0,
+      'left'      : startLeft,
+      'opacity'   : opacityR,
+      'font-size' : sizeR+'px'
+    })
+      .appendTo('body')
+      .animate({
+      'top'       : screenHeight-sizeR,
+      'left'      : endLeft
+    },{
+      duration : timeRun,
+      easing : 'linear',
+      complete:function(){
+        $(this).fadeOut('fast',function(){
+          $(this).remove();
+        });
+      }
+    });
+
+  },500);
+});
+   </script>
+</head>
+<body>
+
+    <script src="js.js"></script>
+    <div class="contenedor">
+      <div class="love">
+        Que tengas un bonito día 
+        <img src="https://bit.ly/XILdJM" alt="Smiley face" height="100" width="100" /> 
+        <h1 class="loveh1">I love being with you!</h1>
+      </div>
+      
+      
+    </div>
+     
+
+      
+</body>
+
+</html>
